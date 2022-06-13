@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Scroller
+comment1.params=viewWorld\ image
+comment1.target=Scroller(greenfoot.World,\ greenfoot.GreenfootImage)
+comment2.params=viewWorld\ image\ wide\ high
+comment2.target=Scroller(greenfoot.World,\ greenfoot.GreenfootImage,\ int,\ int)
+comment3.params=dsx\ dsy
+comment3.target=void\ scroll(int,\ int)
+comment3.text=\n\ Performs\ scrolling\ on\ 'world'\ by\ the\ given\ distances\ along\ the\ horizontal\ and\ vertical\n\n\ @param\ dsx\ The\ requested\ distance\ to\ shift\ everything\ horizontally\n\ @param\ dsy\ The\ requested\ distance\ to\ shift\ everything\ vertically\n
+comment4.params=
+comment4.target=int\ getScrolledX()
+comment4.text=\n\ Fetching\ method\ for\ the\ current\ total\ scrolled\ distance\ horizontally\n\n\ @return\ The\ current\ total\ offset\ of\ horizontal\ scrolling\n
+comment5.params=
+comment5.target=int\ getScrolledY()
+comment5.text=\n\ Fetching\ method\ for\ the\ current\ total\ scrolled\ distance\ vertically\n\n\ @return\ The\ current\ total\ offset\ of\ vertical\ scrolling\n
+numComments=6

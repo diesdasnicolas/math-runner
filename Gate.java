@@ -19,11 +19,63 @@ public class Gate extends Actor
         MODULO,
 
         EQUALS,
+
+        LOG,
+        FAC,
+        NCR,
     }
 
-    public static <T extends Enum<?>> T randomEnum(Class<T> clazz){
-        int x = RANDOM.nextInt(clazz.getEnumConstants().length);
-        return clazz.getEnumConstants()[x];
+    public static CalculationType randomCalcType(){
+        double x = RANDOM.nextInt(82) + 1;
+
+        if (x <= 25) {
+            return CalculationType.SUM;
+        }
+
+        else if (x <= 45) {
+            return CalculationType.DIFFERENCE;
+        }
+
+        else if (x <= 55) {
+            return CalculationType.PRODUCT;
+        }
+
+        else if (x <= 65) {
+            return CalculationType.QUOTIENT;
+        }
+
+        else if (x <= 70) {
+            return CalculationType.MODULO;
+        }
+
+        else if (x <= 75) {
+            return CalculationType.EQUALS;
+        }
+
+        else if (x <= 78f) {
+            return CalculationType.LOG;
+        }
+
+        else if (x <= 81) {
+            return CalculationType.FAC;
+        }
+
+        else {
+            return CalculationType.NCR;
+        }
+    }
+
+    private int factorial(int n) {
+        int factorial = 1;
+
+        for (int i = 2; i <= n; i++)
+            factorial += i;
+
+        return factorial;
+    }
+
+    private int nCr(int n, int r) {
+        return factorial(n) / (factorial(r) * factorial(n - r));
     }
 
     public CalculationType choice;
@@ -37,12 +89,14 @@ public class Gate extends Actor
 
     public int equalsChoice;
 
+    public int cChoice;
+
     public Gate(String pictureName) {
         GreenfootImage image = new GreenfootImage(pictureName);
         image.scale(image.getWidth() /2, image.getHeight() /2);
         setImage(image);
 
-        choice = randomEnum(CalculationType.class);
+        choice = randomCalcType();
 
         sumChoice = RANDOM.nextInt(70);
         differenceChoice = RANDOM.nextInt(20);
@@ -53,6 +107,8 @@ public class Gate extends Actor
         moduloChoice = RANDOM.nextInt(10) + 1;
 
         equalsChoice = RANDOM.nextInt(50) + 1;
+
+        cChoice = RANDOM.nextInt(6) + 1;
     }
 
     /**
@@ -87,6 +143,21 @@ public class Gate extends Actor
             case EQUALS:
                 return equalsChoice;
 
+            case LOG:
+                return (int) Math.log(score);
+
+            case FAC:
+                for (int i = 1; i < score; i++) {
+                    score *= i;
+                }
+
+                return score;
+
+            case NCR:
+
+
+                return nCr(score, cChoice);
+
             default:
                 return score;
         }
@@ -111,6 +182,15 @@ public class Gate extends Actor
 
             case EQUALS:
                 return "x = " + equalsChoice;
+
+            case LOG:
+                return "log(x)";
+
+            case FAC:
+                return "x!";
+
+            case NCR:
+                return "nCr; n = x; r = " + cChoice;
 
             default:
                 return "x";

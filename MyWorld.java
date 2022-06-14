@@ -11,7 +11,7 @@ import java.util.LinkedList;
  */
 public class MyWorld extends World
 {
-    public static final String HIGHSCORE_FILE = "highscore.txt";
+    public static final String HIGHSCORE_FILE = "highscore.dat";
 
     private Scroller scroller;
     public Player player;
@@ -73,7 +73,9 @@ public class MyWorld extends World
 
                 if (score <= 0) {
                     // Stop the game, since it is over
-                    showText("Game Over", 500, 250);
+                    GameOverScreen gameOver = new GameOverScreen();
+                    addObject(gameOver, 500, 250);
+
                     Greenfoot.stop();
                 }
             }
@@ -93,11 +95,14 @@ public class MyWorld extends World
                 pillars.remove(pillar);
             }
 
-            else if (pillar.touchesPlayer(Player.class)) {
+            else if (pillar.touchesPlayer(player)) {
                 // Stop the game, since it is over
-                showText("Game Over", 500, 250);
+                GameOverScreen gameOver = new GameOverScreen();
+                addObject(gameOver, 500, 250);
+
                 Greenfoot.stop();
             }
+
         }
 
         for (int j = 0; j < texts.toArray().length; j++) {
@@ -153,16 +158,12 @@ public class MyWorld extends World
 
     public static void writeHighScore(int score) {
         try {
-            System.out.println("Writing highscore: " + score);
-
             FileWriter writer = new FileWriter(HIGHSCORE_FILE);
             writer.write(score);
             writer.close();
-
-            System.out.println("Done");
         }
 
-        catch (IOException e) { System.out.println("Err"); }
+        catch (IOException e) {  }
     }
 
     // Stage 1

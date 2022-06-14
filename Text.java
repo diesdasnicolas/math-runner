@@ -16,7 +16,7 @@ public class Text extends Actor
     private int playedFrames = 0;
 
     public Text(String text, boolean moving) {
-        GreenfootImage textImage = new GreenfootImage(text, 24, new Color(255, 255, 255), new Color(0, 0, 0, 255));
+        GreenfootImage textImage = new GreenfootImage(text, 24, new Color(255, 255, 255), new Color(0, 0, 0, 0));
         GreenfootImage image = new GreenfootImage(textImage.getWidth() + 12, 36);
 
         image.fill();
@@ -29,7 +29,7 @@ public class Text extends Actor
     }
 
     public void update(String text) {
-        GreenfootImage textImage = new GreenfootImage(text, 24, new Color(255, 255, 255), new Color(0, 0, 0, 255));
+        GreenfootImage textImage = new GreenfootImage(text, 24, new Color(255, 255, 255), new Color(0, 0, 0, 0));
         GreenfootImage image = new GreenfootImage(textImage.getWidth() + 12, 36);
 
         image.fill();

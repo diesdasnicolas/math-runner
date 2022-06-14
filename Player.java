@@ -1,6 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 /**
  * Write a description of class Player here.
@@ -179,6 +180,61 @@ public class Player extends Actor
         atime++;
         if (atime == 28) {
             atime = 0;
+        }
+
+        if (world.score >= 1_000) {
+            String[] parts = standingImageName.split(Pattern.quote("."));
+            standingImageName = parts[0] + "_1000." + parts[1];
+
+            parts = firstMovingImageName.split(Pattern.quote("."));
+            firstMovingImageName = parts[0] + "_1000." + parts[1];
+
+            parts = secondMovingImageName.split(Pattern.quote("."));
+            secondMovingImageName = parts[0] + "_1000." + parts[1];
+        }
+
+        else if (world.score >= 500) {
+            String[] parts = standingImageName.split(Pattern.quote("."));
+            standingImageName = parts[0] + "_500." + parts[1];
+
+            parts = firstMovingImageName.split(Pattern.quote("."));
+            firstMovingImageName = parts[0] + "_500." + parts[1];
+
+            parts = secondMovingImageName.split(Pattern.quote("."));
+            secondMovingImageName = parts[0] + "_500." + parts[1];
+        }
+
+        else if (world.score >= 100) {
+            String[] parts = standingImageName.split(Pattern.quote("."));
+            standingImageName = parts[0] + "_100." + parts[1];
+
+            parts = firstMovingImageName.split(Pattern.quote("."));
+            firstMovingImageName = parts[0] + "_100." + parts[1];
+
+            parts = secondMovingImageName.split(Pattern.quote("."));
+            secondMovingImageName = parts[0] + "_100." + parts[1];
+        }
+
+        else if (world.score >= 50) {
+            String[] parts = standingImageName.split(Pattern.quote("."));
+            standingImageName = parts[0] + "_50." + parts[1];
+
+            parts = firstMovingImageName.split(Pattern.quote("."));
+            firstMovingImageName = parts[0] + "_50." + parts[1];
+
+            parts = secondMovingImageName.split(Pattern.quote("."));
+            secondMovingImageName = parts[0] + "_50." + parts[1];
+        }
+
+        else if (world.score >= 10) {
+            String[] parts = standingImageName.split(Pattern.quote("."));
+            standingImageName = parts[0] + "_10." + parts[1];
+
+            parts = firstMovingImageName.split(Pattern.quote("."));
+            firstMovingImageName = parts[0] + "_10." + parts[1];
+
+            parts = secondMovingImageName.split(Pattern.quote("."));
+            secondMovingImageName = parts[0] + "_10." + parts[1];
         }
 
         switch (atime) {

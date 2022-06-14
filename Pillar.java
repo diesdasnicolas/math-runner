@@ -23,7 +23,9 @@ public class Pillar extends Actor
         // Add your action code here.
     }
 
-    public boolean touchesPlayer(Class<Player> playerClass) {
-        return isTouching(playerClass);
+    public boolean touchesPlayer(Player player) {
+        // Won't use isTouching(), because it will detect collisions in a range that is way too large
+        return player.getX() >= getX() - 70 && player.getX() <= getX() + 70 &&
+                player.getY() >= getY() - 50 && player.getY() <= getY() + 50;
     }
 }

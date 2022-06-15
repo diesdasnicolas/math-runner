@@ -147,15 +147,9 @@ public class Gate extends Actor
                 return (int) Math.log(score);
 
             case FAC:
-                for (int i = 1; i < score; i++) {
-                    score *= i;
-                }
-
-                return score;
+                return factorial(score);
 
             case NCR:
-
-
                 return nCr(score, cChoice);
 
             default:
